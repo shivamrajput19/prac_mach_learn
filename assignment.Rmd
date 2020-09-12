@@ -51,6 +51,7 @@ dim(clean_training)
 #### Now lets see that if the available variables contain a bit of significant variation in them otherwise they would not be much helpful for the training of the machine learning algorithm
 
 ```{r}
+library(caret)
 no_var <- nearZeroVar(clean_training)
 no_var
 ```
@@ -115,6 +116,8 @@ confusionMatrix(as.factor(test_data$classe), predict(rf_fit, test_data))
 ```
 
 ## Final Model Testing
+
+#### Here are the final results
 
 ```{r}
 final_results <- predict(rf_fit, newdata = testing)
